@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WILDORA | Zoo Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">WILD<span>ORA.</span></a>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#animals">Animals</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="login-btn" id="loginOpen">Log In</button>
+        <button class="signup-btn" id="signupOpen">Sign Up</button>
+        <button class="logout-btn hidden" id="logoutBtn">Log Out</button>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="eyebrow">DISCOVER THE BEAUTY OF NATURE</p>
+        <h1>EXPLORE THE<br><span>WILD WORLD.</span></h1>
+        <p class="hero-description">
+            Discover amazing wildlife, learn about different species,
+            and experience the beauty of the animal kingdom.
+        </p>
+        <a href="#animals" class="main-btn">Explore Animals ↗</a>
+    </div>
+    <div class="hero-bottom">01 / WELCOME TO WILDORA</div>
+</section>
+
+<section class="animals-section" id="animals">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">MEET THE WILDLIFE</p>
+            <h2>Explore Our <span>Animals.</span></h2>
+        </div>
+        <p>Get to know some of the world's most fascinating creatures.</p>
+    </div>
+
+    <div class="filters">
+        <button class="filter active" data-filter="all">All Animals</button>
+        <button class="filter" data-filter="mammal">Mammals</button>
+        <button class="filter" data-filter="bird">Birds</button>
+        <button class="filter" data-filter="reptile">Reptiles</button>
+    </div>
+
+    <div class="animal-grid">
+        <article class="animal-card" data-category="mammal">
+            <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=900" alt="Lion">
+            <div class="animal-info">
+                <span>MAMMAL</span>
+                <h3>African Lion</h3>
+                <p>Known as the king of the jungle, lions are powerful social cats.</p>
+                <button class="favorite-btn">♡ Add to Favorites</button>
+            </div>
+        </article>
+
+        <article class="animal-card" data-category="mammal">
+            <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=900" alt="Panda">
+            <div class="animal-info">
+                <span>MAMMAL</span>
+                <h3>Giant Panda</h3>
+                <p>A gentle bear known for its black-and-white fur and bamboo diet.</p>
+                <button class="favorite-btn">♡ Add to Favorites</button>
+            </div>
+        </article>
+
+        <article class="animal-card" data-category="bird">
+            <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=900" alt="Parrot">
+            <div class="animal-info">
+                <span>BIRD</span>
+                <h3>Colorful Parrot</h3>
+                <p>Intelligent birds recognized for their bright feathers and calls.</p>
+                <button class="favorite-btn">♡ Add to Favorites</button>
+            </div>
+        </article>
+
+        <article class="animal-card" data-category="reptile">
+            <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=900" alt="Reptile">
+            <div class="animal-info">
+                <span>REPTILE</span>
+                <h3>Green Iguana</h3>
+                <p>A tree-dwelling reptile that enjoys warm environments.</p>
+                <button class="favorite-btn">♡ Add to Favorites</button>
+            </div>
+        </article>
+
+        <article class="animal-card" data-category="mammal">
+            <img src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=900" alt="Elephant">
+            <div class="animal-info">
+                <span>MAMMAL</span>
+                <h3>Elephant</h3>
+                <p>The largest land animal, known for its memory and intelligence.</p>
+                <button class="favorite-btn">♡ Add to Favorites</button>
+            </div>
+        </article>
+
+        <article class="animal-card" data-category="bird">
+            <img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?w=900" alt="Bird">
+            <div class="animal-info">
+                <span>BIRD</span>
+                <h3>Wild Bird</h3>
+                <p>Birds play an important role in keeping ecosystems balanced.</p>
+                <button class="favorite-btn">♡ Add to Favorites</button>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="about-section" id="about">
+    <div>
+        <p class="eyebrow">OUR PURPOSE</p>
+        <h2>Protect Wildlife.<br><span>Preserve Nature.</span></h2>
+    </div>
+    <p>
+        WILDORA is a wildlife explorer website created to help people
+        discover different animal species and understand why protecting
+        wildlife and their natural habitats matters.
+    </p>
+</section>
+
+<section class="account-section hidden" id="accountSection">
+    <p class="eyebrow">YOUR PERSONAL SPACE</p>
+    <h2>Welcome, <span id="userName">Explorer</span>!</h2>
+    <p>You are now signed in to your WILDORA demo account.</p>
+    <h3>Your Favorite Animals</h3>
+    <div id="favoriteList">No favorites yet. Explore animals and add one!</div>
+</section>
+
+<footer>
+    <a href="#" class="logo">WILD<span>ORA.</span></a>
+    <p>Explore. Discover. Protect.</p>
+    <small>© 2026 WILDORA Zoo Explorer. All rights reserved.</small>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+    <div class="modal-box">
+        <button class="close" data-close="loginModal">×</button>
+        <p class="eyebrow">WELCOME BACK</p>
+        <h2>Log In</h2>
+        <form id="loginForm">
+            <input type="email" id="loginEmail" placeholder="Email address" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit" class="main-btn">Log In</button>
+        </form>
+        <p class="switch-text">No account yet? <a href="#" id="switchSignup">Create one</a></p>
+    </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div class="modal" id="signupModal">
+    <div class="modal-box">
+        <button class="close" data-close="signupModal">×</button>
+        <p class="eyebrow">JOIN THE ADVENTURE</p>
+        <h2>Create Account</h2>
+        <form id="signupForm">
+            <input type="text" id="signupName" placeholder="Full name" required>
+            <input type="email" id="signupEmail" placeholder="Email address" required>
+            <input type="password" id="signupPassword" placeholder="Create password (6+ characters)" minlength="6" required>
+            <button type="submit" class="main-btn">Create Account</button>
+        </form>
+        <p class="switch-text">Already registered? <a href="#" id="switchLogin">Log in</a></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+<article class="animal-card" data-category="mammal">
+    <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=900" alt="Lion">
+
+    <div class="animal-info">
+        <span>MAMMAL</span>
+        <h3>African Lion</h3>
+        <p>Known as the king of the jungle, lions are powerful social cats.</p>
+
+        <a href="explore.html?animal=lion" class="explore-btn">
+            Explore Animal ↗
+        </a>
+
+        <button class="favorite-btn">♡ Add to Favorites</button>
+    </div>
+</article>

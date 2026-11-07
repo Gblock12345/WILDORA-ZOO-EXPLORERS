@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Animal | WILDORA</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .explore-page {
+            min-height: 85vh;
+            padding: 70px 9%;
+        }
+
+        .animal-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .animal-detail img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .animal-detail h1 {
+            font-size: clamp(40px, 6vw, 70px);
+            margin-bottom: 20px;
+        }
+
+        .animal-detail p {
+            color: #aab5aa;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .animal-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .fact {
+            background: #141b16;
+            border: 1px solid #344234;
+            padding: 18px;
+            border-radius: 6px;
+        }
+
+        .fact span {
+            color: #c5f36b;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .fact h3 {
+            margin-top: 8px;
+            font-size: 17px;
+        }
+
+        @media(max-width: 700px) {
+            .animal-detail {
+                grid-template-columns: 1fr;
+            }
+
+            .animal-detail img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">WILD<span>ORA.</span></a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#animals">Animals</a>
+        <a href="index.html#about">About</a>
+    </nav>
+    <a href="index.html#animals" class="signup-btn" style="text-decoration:none">Back to Zoo</a>
+</header>
+
+<main class="explore-page">
+    <div class="animal-detail">
+        <img id="animalImage" src="" alt="Animal">
+
+        <div>
+            <p class="eyebrow" id="animalCategory">WILDLIFE EXPLORER</p>
+            <h1 id="animalName">Animal Name</h1>
+            <p id="animalDescription"></p>
+
+            <div class="animal-facts">
+                <div class="fact">
+                    <span>HABITAT</span>
+                    <h3 id="habitat"></h3>
+                </div>
+
+                <div class="fact">
+                    <span>DIET</span>
+                    <h3 id="diet"></h3>
+                </div>
+
+                <div class="fact">
+                    <span>LIFESPAN</span>
+                    <h3 id="lifespan"></h3>
+                </div>
+
+                <div class="fact">
+                    <span>TYPE</span>
+                    <h3 id="type"></h3>
+                </div>
+            </div>
+
+            <a href="index.html#animals" class="main-btn">← Back to Animals</a>
+        </div>
+    </div>
+</main>
+
+<script>
+const animals = {
+    lion: {
+        name: "African Lion",
+        category: "MAMMAL",
+        type: "Mammal",
+        habitat: "Grasslands",
+        diet: "Carnivore",
+        lifespan: "10–14 years",
+        image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=1000",
+        description: "The African lion is a large wild cat known for its strength and social behavior. Lions live in groups called prides and are often found in African grasslands and savannas."
+    },
+
+    panda: {
+        name: "Giant Panda",
+        category: "MAMMAL",
+        type: "Mammal",
+        habitat: "Mountain forests",
+        diet: "Mostly bamboo",
+        lifespan: "15–20 years",
+        image: "https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=1000",
+        description: "The giant panda is famous for its black-and-white fur. It lives in mountain forests and spends much of its day eating bamboo."
+    },
+
+    parrot: {
+        name: "Colorful Parrot",
+        category: "BIRD",
+        type: "Bird",
+        habitat: "Tropical forests",
+        diet: "Seeds and fruits",
+        lifespan: "Varies by species",
+        image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?w=1000",
+        description: "Parrots are intelligent birds with colorful feathers. Many species can imitate sounds and use their strong beaks to crack seeds and nuts."
+    },
+
+    iguana: {
+        name: "Green Iguana",
+        category: "REPTILE",
+        type: "Reptile",
+        habitat: "Tropical forests",
+        diet: "Mostly plants",
+        lifespan: "10–15 years",
+        image: "https://images.unsplash.com/photo-1535591273668-578e31182c4f?w=1000",
+        description: "The green iguana is a large tree-dwelling lizard. It is a good climber and usually lives in warm tropical environments."
+    },
+
+    elephant: {
+        name: "Elephant",
+        category: "MAMMAL",
+        type: "Mammal",
+        habitat: "Savannas and forests",
+        diet: "Herbivore",
+        lifespan: "60–70 years",
+        image: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=1000",
+        description: "Elephants are the largest land animals. They are known for their long trunks, large ears, intelligence, and strong family connections."
+    },
+
+    bird: {
+        name: "Wild Bird",
+        category: "BIRD",
+        type: "Bird",
+        habitat: "Forests and wetlands",
+        diet: "Varies by species",
+        lifespan: "Varies by species",
+        image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1000",
+        description: "Wild birds live in different environments and help maintain healthy ecosystems through activities such as pollination and seed dispersal."
+    }
+};
+
+const selectedAnimal = new URLSearchParams(window.location.search).get("animal");
+const animal = animals[selectedAnimal];
+
+if (animal) {
+    document.title = animal.name + " | WILDORA";
+    document.getElementById("animalImage").src = animal.image;
+    document.getElementById("animalImage").alt = animal.name;
+    document.getElementById("animalName").textContent = animal.name;
+    document.getElementById("animalCategory").textContent = animal.category;
+    document.getElementById("animalDescription").textContent = animal.description;
+    document.getElementById("habitat").textContent = animal.habitat;
+    document.getElementById("diet").textContent = animal.diet;
+    document.getElementById("lifespan").textContent = animal.lifespan;
+    document.getElementById("type").textContent = animal.type;
+} else {
+    document.querySelector(".explore-page").innerHTML =
+        '<h1>Animal not found.</h1><a href="index.html#animals" class="main-btn">Back to Animals</a>';
+}
+</script>
+
+</body>
+</html>
